@@ -4,5 +4,4 @@ reference: http://www.erlang.org/
 
 books: Joe Armstrong, “Programming Erlang”
 
-in preparazione agli esami, magistrale Unipi
-- Principles for Software Composition
+in preparazione all'esame Principles for Software Composition (magistrale Unipi)
