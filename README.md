@@ -1,34 +1,38 @@
 http://www.erlang.org/
 
-book: Joe Armstrong, “Programming Erlang”
+reference book: Joe Armstrong, “Programming Erlang”
 
-exam: Principles for Software Composition (magistrale Unipi)
-
-TEORIA (dal seminario di Spindox)
-es: Erlang Virtual Machine BEAM and Elixir
-BEAM è la VM su cui vengono eseguiti i linguaggi di programmazione Erlang (padre di Elixir, ha più di 40 anni ma con anche librerie di caratteristiche povere ed extreme critical) ed Elixir
-questa VM è nota per la sua straordinaria capacità di gestione dei processi, consentendo una scalabilità e tolleranza ai guasti estremamente elevata 
-il confronto immediato avviene con la JVM, es nella BEAM non ci sono i thread ma il modello ad attori, questi sono degli worker che possono lavorare parallelamente, ovvero dei processi Erlang, ognuno lavora indipendentemente, non ci sono problemi di concorrenza perché non condividono niente tra di loro, non ci sono quindi stati condivisi, possono comunicare tra loro tramite il pattern di message passing, questo non è altro che un sistema distribuito all'interno di una stessa macchina, gli indirizzi degli attori sono noti a tutti quindi tutti possono comunicare tra loro
+exam: Principles for Software Composition (Magistrale Unipi)
 
 
+notes (from Spindox seminar): 
 
-preemptive scheduling: per i suoi processi leggeri, permettendo la condivisione equa della risorsa tra di lorogarbage collection: eseguito a livello di processo, riducendo i tempi di pausa se su una collection su un grande heap di memoriahot code swapping: supporto dell'aggiornamento del codice a caldo, che consente di cambiare le parti del sistema senza interromperne il funzionamentofault tolerance: supporto per la creazione di sistemi tolleranti ai guasti grazie a concetti come processi supervisionati e il modello let it crash, questo significa non avere uno stile di programmazione difensivo che avrei se mi mettessi a gestire tutte le eccezioni possibiliscalabilità: gestire un # molto elevato di processi leggeri simultaneamente
+Erlang Virtual Machine BEAM: 
+- the VM where programming languages such as Erlang are executed on 
+- popular for its good capacity to manage software processes, scalability and fault tolerance 
+- adversarily from the JVM, BEAM does not involve the threads but rather the actor-model with concurrent working and independent workers, namely "Erlang processes". However, there are no concurrent problems because actors share nothing and can communicate through the message-passing pattern. The pattern is a distributed system within the same machine in which actors' addresses are known to everyone.
 
+Erlang (old programming language) characteristics:
+- precedes Elixir, is more than 40 years old and has extremely critical libraries
+- preemptive scheduling is used for lightweight processes to allow for a fair sharing of resources between actors
+- garbage collection executed at the process level to reduce waiting times (helpful if on a collection on a great heap)
+- hot code swapping: support the "hot" software updating, which allows to make system changes without stopping it
+- fault tolerance: thanks to the supervision of processes and the "let it crash"-model, which means not using a defensive programming style (i.e. when catching all possible exceptions)
+- scalability: manage a large number of lightweight processes simultaneously
 
-es: Elixir (queste caratteristiche lo rendono interessante anche nell'AI)è molto simile con la sintassi di Rubiinteroperabilità: può interoperare facilmente con il codice Erlang e può integrare con altre lingue attraverso NIFs Native Implemented Functions, questo significa che non ha necessità di essere compilatometaprogrammazione: permette di scrivere codice che a sua volta produce o modifica altro codice, sono tipo delle macro del codice C, si manipola il linguaggio per ottenere strutture nuove per ottenere i DSL Domain Specific Language immutabilità dei dati: tutte le variabili sono immutabili che porta ad un codice più sicuro e prevedibilepattern matching: consente di destrutturare dati complessi in modo semplice e leggibileeccellente tooling: es Mix per la gestione delle dipendenze e i compiti di build, es ExUnit per i test unitarilinguaggio moderno che sfrutta la VM Erlang per fornire sistemi altamente scalabili, concorrenziali, paralleli e affidabililinguaggio funzionale: enfatizza l'uso di funzioni pure, consentendo codice più prevedibile e facilmente testabileconcorrenza: grazie alle BEAM, supporta la programmazione concorrente, permettendo di gestire molte operazioni in parallelofault-tolerance: è stato progettato per la tolleranza ai guasti, con sistemi che possono recuperare rapidamente da errori e malfunzionamentiscalabilità: in grado di gestire un elevato # di processi leggeri simultaneamente e cluster di macchine in retereal-time processing: è adatto per applicazioni che richiedono un'elaborazione in tempo reale dei dati
+Elixir (new programming language) characteristics:
+- similar syntax to Rubi
+- easy interoperability with the Erlang code or other programming languages via the Native Implemented Functions (NIF), without the need to be compiled
+- uses meta-programming: write code that produces/edits other code by itself, e.g. MACRO on C. The software manages new Domain Specific Language (DSL) structures
+- data immutability to provide more secure/safe code (trustworthy)
+- pattern matching to allow to de-structure of complex data in an easy and human-readable way
+- good tooling for managing building dependencies, e.g. ExUnit for unit testing
+- scalability: manage a large number of lightweight processes simultaneously and clusters of machines
+- functional programming language which eases code testability
+- concurrency/parallelism
+- fast fault tolerance from system errors 
+- real-time processing: suitable for applications needing real-time data managing, e.g. Single Page Application (SPA) obtain updates without re-charging the page
 
+Elixir concrete examples (with BEAM, OTP, Phoenix): Bleacher Report, WhatsApp, Discord
 
-
-SPA Single Page Application, aggiornamenti ottenuti senza ricaricare la pagina
-Elixir casi di studio
-esempi concreti di come il tech stack Elixir, Erlang, BEAM, OTP, Phoenix sia stato implementato con successo e i principali benefici e risultati ottenuti
-es: Bleacher Report, WhatsApp, Discord
-
-
-
-perchè Elixir in AI
-concorrenza: grazie alla VM Erlang, Elixir supporta la programmazione concorrente, il che può essere particolarmente vantaggioso per applicazioni AI che necessitano di gestire molte operazioni in parallelo
-fault-tolerance: Elixir è progettato per costruire applicazioni tolleranti alle falle. Questo è particolarmente utile nelle applicazioni AI, dove una singola operazione fallita non dovrebbe portare all'interruzione dell'intero sistema
-real-time processing: Elixir può gestire un elevato # di processi leggeri contemporaneamente, il che è utile per le applicazioni AI che necessitano di elaborazione in tempo reale
-scalabilità: Elixir è estremamente scalabile, caratteristica che è particolarmente importante per le applicazioni AI, che spesso devono gestire grandi quantità di dati
-interoperabilità: Elixir può interoperare con Python (uno dei linguaggi più usati in AI) tramite librerie come NX, Axon e Bumblebee, il che può semplificare l'integrazione di Elixir in un ecosistema AI esistente
+Elixir and AI: concurrency + fault-tolerance + real-time data processing + scalability + interoperability (e.g. with Python using NX, Axon and Bumblebee libraries which easily integrate Elixir into an already existent AI ecosystem)
