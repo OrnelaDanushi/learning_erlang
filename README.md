@@ -1,8 +1,10 @@
 http://www.erlang.org/
+
 book: Joe Armstrong, “Programming Erlang”
+
 exam: Principles for Software Composition (magistrale Unipi)
 
-TEORIA (Spindox seminario)
+TEORIA (dal seminario di Spindox)
 es: Erlang Virtual Machine BEAM and Elixir
 BEAM è la VM su cui vengono eseguiti i linguaggi di programmazione Erlang (padre di Elixir, ha più di 40 anni ma con anche librerie di caratteristiche povere ed extreme critical) ed Elixir
 questa VM è nota per la sua straordinaria capacità di gestione dei processi, consentendo una scalabilità e tolleranza ai guasti estremamente elevata 
