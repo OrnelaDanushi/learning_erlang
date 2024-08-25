@@ -1,8 +1,6 @@
-reference: http://www.erlang.org/
-
-books: Joe Armstrong, “Programming Erlang”
-
-in preparazione all'esame Principles for Software Composition (magistrale Unipi)
+http://www.erlang.org/
+book: Joe Armstrong, “Programming Erlang”
+exam: Principles for Software Composition (magistrale Unipi)
 
 TEORIA (Spindox seminario)
 es: Erlang Virtual Machine BEAM and Elixir
